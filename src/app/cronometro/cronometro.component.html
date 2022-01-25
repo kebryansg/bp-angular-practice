@@ -1,0 +1,11 @@
+<div class="d-flex flex-column text-center">
+  <span class="fa-2x">
+    {{reloj}}
+  </span>
+  <div class="w-100 d-flex flex-row justify-content-around">
+    <i class="fa fa-play text-success cursor-pointer" (click)="iniciarCronometro()"></i>
+    <i class="fa fa-pause text-primary cursor-pointer" (click)="pausarCronometro()"></i>
+    <i class="fa fa-stop text-danger cursor-pointer" (click)="pararCronometro()"></i>
+    <i class="fa fa-history text-warning cursor-pointer" (click)="emitirHistorial()"></i>
+  </div>
+</div>

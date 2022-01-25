@@ -1,3 +1,83 @@
+<div class="container-fluid">
+
+
+  <p class="title mt-3">
+    Template Variable
+  </p>
+
+  <input #inputPhone
+         type="text"
+         class="form-control mb-2"
+         placeholder="phone"/>
+  <button #btnCallPhone
+          class="btn btn-primary me-2"
+          (click)="mostrarConsola(inputPhone.value)">
+    Call Phone
+  </button>
+  <button class="btn btn-danger me-3"
+          (click)="btnCallPhone.click()">
+    Click Button
+  </button>
+
+
+  <p class="title mt-3">
+    Componente Cronometro
+  </p>
+
+  <button class="btn btn-danger me-3"
+          (click)="iniciarCrono()">
+    Iniciar Cronometro Padre
+  </button>
+
+  <app-cronometro #cronometroFirst
+                  [minuto]="10"
+                  [segundo]="5"
+                  (evtHistorial)="addMarcador($event)"
+  ></app-cronometro>
+  <app-cronometro #cronometroSecond
+                  [minuto]="5"
+                  [segundo]="25"
+                  (evtHistorial)="addMarcador($event)"
+  ></app-cronometro>
+  <app-cronometro #cronometro
+                  [minuto]="6"
+                  [segundo]="12"
+                  (evtHistorial)="addMarcador($event)"
+  ></app-cronometro>
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let marcador of listMarcadores">
+      {{ marcador }}
+    </li>
+  </ul>
+
+
+</div>
+
+<p class="title">
+  Componente Acumulador
+</p>
+
+<app-acumulador [contador]=" 150 "
+                nombre="Acm 1"
+                [acm]="3"
+                (evtClick)="insertLogAcumulador($event)"
+></app-acumulador>
+
+<app-acumulador [contador]=" 150 "
+                nombre="Acm 2"
+                [acm]="3"
+                (evtClick)="insertLogAcumulador($event)"
+></app-acumulador>
+
+<ul class="list-group">
+  <il class="list-group-item"
+      *ngFor="let log of logAcumulador">
+    {{ log }}
+  </il>
+</ul>
+
+
 <!--#region-->
 <p class="title">Data Binding</p>
 <p>
@@ -32,8 +112,6 @@
            [(ngModel)]="edadEstudiante">
   </div>
 </div>
-
-<!--#endregion-->
 
 <p class="title">Directivas NgIf, Else , NgFor</p>
 <div>
@@ -75,4 +153,5 @@
     {{color.redSocial}}
   </p>
 </div>
+<!--#endregion-->
 
